@@ -7,15 +7,17 @@
 int main(int argc, char*argv[])
 {
     timing_start();
-    int cntr=0;
-    int tries =__INT_MAX__;
+    long long cntr=0;
+    long long  tries =__INT_MAX__;
+    tries= tries * 5;
     time_t t;
     srand((unsigned) time(&t));
     double x;
     double y;
     double sumSq;
     double mcPi;
-    int numhits =0;
+    long long numhits =0;
+    char* piString ="3.14159265359";
     for (; cntr<tries; ++cntr )
     {
         double x = (double)rand()/RAND_MAX;
@@ -27,9 +29,9 @@ int main(int argc, char*argv[])
         }
     }
     mcPi=(double) numhits/tries*4;
-   printf("# of trials= %d , estimate of pi is %.80f \n",tries,mcPi);
-    
     timing_stop();
+    printf("TargetPI= %s\n",piString);
+    printf("Tries= %lld\npi is %.15f \n",tries,mcPi);
     print_timing();
     return 1;
 }
