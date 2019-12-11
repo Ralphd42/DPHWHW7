@@ -55,7 +55,17 @@ int main(int argc, char*argv[])
     hitsPerRank = pifunct(triesPerRank);
     MPI_Reduce(&hitsPerRank,&totalHits,1,MPI_SUM,MASTER,MPI_COMM_WORLD);
     
+    mcPi=(double) totalHits/tries*4;
+    /*
+         start = MPI_Wtime();
+   processNumberInCircle = Toss(numProcessTosses, myRank);
+   finish = MPI_Wtime();
+    MPI_Reduce(&loc_elapsed, &elapsed, 1, MPI_DOUBLE, MPI_MAX, 0, MPI_COMM_WORLD); 
     
+    */
+
+printf("TargetPI= %s\n",piString);
+    printf("Tries= %lld\npi is %.15f \n",tries,mcPi);
     MPI_Finalize(); 
     return 1;
 }
