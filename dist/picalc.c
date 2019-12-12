@@ -70,13 +70,14 @@ printf("TargetPI= %s\n",piString);
     return 1;
 }
 
-long pifunct(  long numTries)
+int pifunct(  int numTries)
 {
-    time_t t;
-    long numhits=0;
+     
+    int numhits=0;
     srand((unsigned) time(&t));  
-    long cntr;      
-    for (cntr=0; cntr<tries; ++cntr )
+    int cntr;      
+    int sumSq;
+    for (cntr=0; cntr<numTries; ++cntr )
     {
         double x = (double) rand()/RAND_MAX;
         double y = (double) rand()/RAND_MAX;
