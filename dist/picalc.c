@@ -10,7 +10,7 @@ const char * piString ="3.14159265359";
 
 
 // prototypes
-long pifunct(  long numTries);
+int pifunct(  int numTries);
 int main(int argc, char*argv[])
 {
     
@@ -44,7 +44,7 @@ int main(int argc, char*argv[])
         
 
     }
-    MPI_Bcast(num_attempts, 1, MPI_LONG, MASTER, MPI_COMM_WORLD);
+    MPI_Bcast(&num_attempts, 1, MPI_LONG, MASTER, MPI_COMM_WORLD);
 
     triesPerRank =num_attempts/num_proc;
 
@@ -65,7 +65,7 @@ int main(int argc, char*argv[])
     */
 
 printf("TargetPI= %s\n",piString);
-    printf("Tries= %lld\npi is %.15f \n",num_attempts,mcPi);
+    printf("Tries= %d\npi is %.15f \n",num_attempts,mcPi);
     MPI_Finalize(); 
     return 1;
 }
@@ -74,6 +74,7 @@ int pifunct(  int numTries)
 {
      
     int numhits=0;
+    time_t t;
     srand((unsigned) time(&t));  
     int cntr;      
     int sumSq;
