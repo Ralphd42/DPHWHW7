@@ -1,4 +1,4 @@
-# include <time.h>
+# include <sys/time.h>
 # include <stdio.h>
 
 # ifndef TIMING_H

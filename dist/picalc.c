@@ -5,6 +5,7 @@
 #include "mpi.h"
 #include "timing.h"
 #include <omp.h>
+#include<time.h>
 // constants
 #define MASTER 0
 #define PI 3.14159265359
