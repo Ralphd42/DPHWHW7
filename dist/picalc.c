@@ -17,7 +17,7 @@ int pifunct(  int numTries);
 int ompPI(int numTries);
 int main(int argc, char*argv[])
 {
-    timing_start() ;
+    
     int rc;
     int num_proc;
     int rank;
@@ -46,7 +46,7 @@ int main(int argc, char*argv[])
             num_attempts = atoi( argv[1]);
         }
         
-
+        timing_start() ;
     }
     MPI_Bcast(&num_attempts, 1, MPI_LONG, MASTER, MPI_COMM_WORLD);
 
@@ -67,10 +67,11 @@ int main(int argc, char*argv[])
         printf("TargetPI= %s\n",piString);
         printf("Differenece %f\n", fabs( mcPi - PI)  );
         printf("Tries= %d\npi estimate is %.15f \n",num_attempts,mcPi);
+        timing_stop();
+        print_timing();
     }
     MPI_Finalize(); 
-    timing_stop();
-    print_timing();
+    
     return 1;
 }
 
