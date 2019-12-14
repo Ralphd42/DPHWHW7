@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
+#include<time.h>
 #include "timing.h"
 
 
@@ -8,8 +9,8 @@ int main(int argc, char*argv[])
 {
     timing_start();
     long long cntr=0;
-    long long  tries =__INT_MAX__;
-    tries= tries * 5;
+    long long  tries =atoi(argv[1]);
+    
     time_t t;
     srand((unsigned) time(&t));
     double x;
